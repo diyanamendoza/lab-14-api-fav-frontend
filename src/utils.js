@@ -8,8 +8,20 @@ export async function getResults(name){
     return response.body;
 }
 // Create Favorite
-
+export async function createFav(fav, token) {
+    const response = await request
+        .post(`${URL}/api/favs`)
+        .set('Authorization', token)
+        .send(fav)
+    return response.body;
+}
 // Get Favorite
+export async function getFavs(token) {
+    const response = await request
+        .get(`${URL}/api/favs`)
+        .set('Authorization', token)
+    return response.body;
+}
 
 //login
 export async function login(email, password) {
