@@ -9,6 +9,7 @@ import SearchPage from './SearchPage.js';
 import Login from './Login.js'
 import Signup from './Signup.js'
 import FavsPage from './FavsPage.js';
+import Home from './Home.js';
 
 
 import './App.css'
@@ -39,6 +40,7 @@ state = {
                         <h2>Fav PDX Restaurants</h2>
                         <nav>
                         <NavLink exact activeClassName='active-nav' to='/'>Home</NavLink>
+                        <NavLink exact activeClassName='active-nav' to='/search'>Search</NavLink>
                         <NavLink exact activeClassName='active-nav' to='/login'>Login</NavLink>
                         <NavLink exact activeClassName='active-nav' to='/signup'>Signup</NavLink>
                         <NavLink exact activeClassName='active-nav' to='/favs'>Favs</NavLink>
@@ -46,6 +48,12 @@ state = {
                         </nav>
                     </header>
                     <Switch>
+                        <Route 
+                            path="/" 
+                            exact
+                            render={(routerProps) => <Home
+                                {...routerProps} />} 
+                        />
                         <Route 
                             path="/search" 
                             exact
@@ -56,7 +64,9 @@ state = {
                         <Route 
                             path="/favs" 
                             exact
-                            render={(routerProps) => <FavsPage {...routerProps} />} 
+                            render={(routerProps) => <FavsPage 
+                                token = {this.state.token}
+                                {...routerProps} />} 
                         />
                         <Route 
                             path="/signup" 
