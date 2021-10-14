@@ -28,7 +28,7 @@ state = {
   logout = () => {
     localStorage.clear()
     this.setState({ token: ''})
-    this.history.push('/')
+    // this.history.push('/')
   }
 
     render() {
@@ -49,7 +49,9 @@ state = {
                         <Route 
                             path="/search" 
                             exact
-                            render={(routerProps) => <SearchPage {...routerProps} />} 
+                            render={(routerProps) => <SearchPage 
+                                token = {this.state.token}
+                                {...routerProps} />} 
                         />
                         <Route 
                             path="/favs" 
