@@ -27,8 +27,10 @@ export default class search extends Component {
                 <div className = "results-container">
                     {result.map(entry => 
                     <div className="results-item">
-                    {entry.name}
+                    <span>{entry.name}</span>
                     <img src={entry.image} alt={entry.name}/>
+                    <span>Rating: {entry.rating}</span>
+                    <span><a href={entry.url}>Yelp Link</a></span>
                     </div>
                     ) }
                 </div>
