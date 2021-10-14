@@ -1,5 +1,5 @@
 import request from 'superagent';
-const URL = 'https://hidden-everglades-21018.herokuapp.com';
+const URL = 'https://cryptic-falls-98375.herokuapp.com';
 
 // Search
 export async function getResults(name){
@@ -11,6 +11,20 @@ export async function getResults(name){
 
 // Get Favorite
 
-// Login 
+//login
+export async function login(email, password) {
+    const response = await request
+    .post(`${URL}/auth/signin`)
+    .send ({email, password})
+    
+    return response.body;
+}
 
-//  Sign Up
+//signup: 
+export async function signUp(email, password) {
+    const response = await request
+    .post(`${URL}/auth/signup`)
+    .send ({email, password})
+    
+    return response.body;
+}
