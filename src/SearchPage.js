@@ -18,12 +18,16 @@ export default class search extends Component {
         const result = this.state.result
         return (
             <div>
+                <h1>Hello have some red wine</h1>
+                <div className ="search-bar">
+                
                 <form onSubmit = {this.handleSubmit}>
                     <label>
                     <input onChange={async(e) => await this.setState({ name: e.target.value })}/>
                     <button>Search</button>
                     </label>
                 </form>
+                </div>
                 <div className = "results-container">
                     {result.map(entry => 
                     <div className="results-item">
@@ -31,6 +35,7 @@ export default class search extends Component {
                     <img src={entry.image} alt={entry.name}/>
                     <span>Rating: {entry.rating}</span>
                     <span><a href={entry.url}>Yelp Link</a></span>
+                    <button className="favorite-restaurant">Fav</button>
                     </div>
                     ) }
                 </div>
