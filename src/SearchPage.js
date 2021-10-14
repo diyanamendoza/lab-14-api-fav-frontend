@@ -4,7 +4,8 @@ export default class search extends Component {
     
     state = {
         name:'',
-        result: []
+        result: [],
+        fav:[]
     }
 
     handleSubmit = async(e) => {
@@ -13,6 +14,7 @@ export default class search extends Component {
         await this.setState({ result })
         console.log(this.state.result)
     }
+
 
     render() {
         const result = this.state.result
@@ -35,7 +37,7 @@ export default class search extends Component {
                     <img src={entry.image} alt={entry.name}/>
                     <span>Rating: {entry.rating}</span>
                     <span><a href={entry.url}>Yelp Link</a></span>
-                    <button className="favorite-restaurant">Fav</button>
+                    <button value={entry.id} className="favorite-restaurant">Fav</button>
                     </div>
                     ) }
                 </div>
