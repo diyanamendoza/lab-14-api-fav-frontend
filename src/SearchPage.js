@@ -22,9 +22,10 @@ export default class search extends Component {
         console.log('results on submit', this.state.result)
     }
 
-    handleFav = async(id) => {
+    handleFav = async(url) => {
         // could be function
-        const favArr = this.state.result.filter(item => item.id === id);
+        const favArr = this.state.result.filter(item => item.url === url);
+        console.log(favArr)
         const fav = favArr[0];
         // console.log(fav[0]);
         await createFav(fav, this.props.token);
@@ -55,14 +56,14 @@ export default class search extends Component {
                 </div>
                 <div className = "results-container">
                     {result.map(entry => 
-                    <div className="results-item">
+                    <div className="results-item" key={entry.url}>
                     <span>{entry.name}</span>
                     <img src={entry.image} alt={entry.name}/>
                     <span>Rating: {entry.rating}</span>
                     <span><a href={entry.url}>Yelp Link</a></span>
                     {/* if this entry from results data is also inside of our favs data, then disable this button */}
                     {
-                    !this.isInFav(entry.url, this.state.favs) && <button onClick={async() => await this.handleFav(entry.id)} className="favorite-restaurant">Fav</button>
+                    !this.isInFav(entry.url, this.state.favs) && <button onClick={async() => await this.handleFav(entry.url)} className="favorite-restaurant">Fav</button>
                     }
                     </div>
                     ) }

@@ -23,6 +23,14 @@ export async function getFavs(token) {
     return response.body;
 }
 
+//delete fav
+export async function deleteFav(id, token) {
+    const response = await request
+        .delete(`${URL}/api/favs/${id}`)
+        .set('Authorization', token)
+    return response.body;
+}
+
 //login
 export async function login(email, password) {
     const response = await request

@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-.results-container img {
+
+.active-nav {
+  font-weight: bolder;
+}
+
+img {
   height: 200px;
   border-radius: 5px;
 }
@@ -14,7 +19,27 @@
   gap: 10px;
 }
 
-.results-item{
+.favs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.results-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px dotted black;
+  padding:10px;
+  border-radius: 5px;
+  gap:10px;
+}
+
+.solo-fav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,4 +73,24 @@ html, body {
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3em;
+}
+
+button {
+  font-family: 'Playfair Display', serif;
+  font-weight:bolder;
+  border: none;
+  background: black;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input {
+  font-family: 'Playfair Display', serif;
+  font-weight:bolder;
+}
+
+input:focus {
+  outline: none;
 }
